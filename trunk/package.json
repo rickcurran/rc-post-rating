@@ -1,0 +1,15 @@
+{
+	"name": "post-rating-block",
+	"version": "1.0.1",
+	"description": "This Block adds a customisable post-rating widget to add to your content",
+	"author": "Rick Curran",
+	"license": "GPL-2.0-or-later",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "wp-scripts start",
+		"build": "wp-scripts build"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "11.0.0"
+	}
+}
