@@ -2,9 +2,9 @@ import { registerBlockType } from '@wordpress/blocks';
 import ServerSideRender from '@wordpress/server-side-render';
 import { useBlockProps, InspectorControls } from '@wordpress/block-editor';
  
-registerBlockType( 'post-rating/post-rating-block', {
+registerBlockType( 'rcrp-post-rating/post-rating-block', {
     apiVersion: 2,
-    title: 'Add Post Rating Block',
+    title: 'Post Rating',
     icon: 'yes',
     category: 'widgets',
  	attributes: {
@@ -37,7 +37,7 @@ registerBlockType( 'post-rating/post-rating-block', {
         return (
             <div { ...blockProps }>
                 <ServerSideRender
-                    block="post-rating/post-rating-block"
+                    block="rcrp-post-rating/post-rating-block"
                     attributes={ props.attributes }
                 />
             </div>

@@ -1,16 +1,16 @@
 === RC Post Rating ===
 Contributors: rickcurran
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZEXMAMCYDS3G
-Tags: security, geolocation, login
+Tags: widgets, post rating, rate page, rate post, rating system, user-feedback, votes
 Requires at least: 4.6
 Tested up to: 5.9
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
-This plugin adds the ability for users to provide feedback on pages / posts via a up / down rating (up/downvoting) buttons.
+This plugin adds the ability for users to provide feedback on pages / posts via up / down rating (up/downvoting) buttons.
 
 == Description ==
 
@@ -30,11 +30,11 @@ There are two methods that can be used to add the buttons to your site, a shortc
 
 The most basic shortcode format is:
 
-`[qr_post_rating]`
+`[rc_post_rating]`
 
 To override the default classes and button text you would use:
 
-`[qr_post_rating classes="my-buttons" uptext="Yes" downtext="No"]`
+`[rc_post_rating classes="my-buttons" uptext="Yes" downtext="No"]`
 
 This will use the default settings from the plugin's admin page.
 
@@ -70,7 +70,11 @@ Yes, this plugin adds a new block called "Add Post Rating Block" in the 'Widgets
 
 Yes, you can add this to your theme by using the shortcode, you can use the following PHP code in the appropriate file(s) within your site's theme:
 
-`<?php echo do_shortcode( '[qr_post_rating]' ); ?>`
+`<?php echo do_shortcode( '[rc_post_rating]' ); ?>`
+
+= Can I change the wording on the buttons? =
+
+Yes, you can set the default button text on the plugin settings page, use the "RC Post Rating" menu found in the "Settings" menu in your WordPress admin. If using the shortcode method of adding the buttons to your site you can also override these defaults with shortcode attributes.
 
 = How do I style the buttons? Can I customise the CSS? =
 
@@ -81,8 +85,8 @@ The HTML markup for the buttons has a containing DIV element with a class of `po
 Here is an example of the generated HTML markup:
 
 `<div class="post-rating-tool" data-post-rating-id="123">
-    <a class="rating-up active">Up</a>
-    <a class="rating-down disabled">Down</a>
+    <a href="#yes" class="rating-up active">Yes</a>
+    <a href="#no" class="rating-up disabled">No</a>
 </div>`
 
 Here is some example CSS to provide styling for the basic states of the buttons:

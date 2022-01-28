@@ -8,11 +8,11 @@
  * REST API
  */
 
-add_action( 'rest_api_init', 'qr_post_rating_rest_endpoint' );
-function qr_post_rating_rest_endpoint() {
-    register_rest_route( 'qr-post-rating/v1', '/rate/(?P<mode>[a-z]+)/(?P<id>\d+)', array(
+add_action( 'rest_api_init', 'rcpr_post_rating_rest_endpoint' );
+function rcpr_post_rating_rest_endpoint() {
+    register_rest_route( 'rc-post-rating/v1', '/rate/(?P<mode>[a-z]+)/(?P<id>\d+)', array(
         'methods' => 'POST',
-        'callback' => 'qr_post_rating_rest_func',
+        'callback' => 'rcpr_post_rating_rest_func',
         'args' => array(
             'id' => array(
                 'required' => true,
@@ -36,25 +36,25 @@ function qr_post_rating_rest_endpoint() {
     ));
 }
 
-function qr_post_rating_rest_func( $data ) {
-    $id = esc_attr( $data[ 'id' ] );
-    $mode = esc_attr( $data[ 'mode' ] );
+function rcpr_post_rating_rest_func( $data ) {
+    $id = sanitize_text_field( strip_tags( $data[ 'id' ] ) );
+    $mode = sanitize_text_field( strip_tags( $data[ 'mode' ] ) );
     $post_item = get_post( $id );
-    $title = $post_item->post_title;
-    $current_up_rating = get_post_meta( $id, 'qr_post_rating_up', true );
-    $current_down_rating = get_post_meta( $id, 'qr_post_rating_down', true );
+    $title = sanitize_text_field( strip_tags( $post_item->post_title ) );
+    $current_up_rating = sanitize_text_field( strip_tags( get_post_meta( $id, 'rcpr_post_rating_up', true ) ) );
+    $current_down_rating = sanitize_text_field( strip_tags( get_post_meta( $id, 'rcpr_post_rating_down', true ) ) );
     
     if ( $mode == 'up' ) {
         $current_up_rating = $current_up_rating + 1;
-        update_post_meta( $id, 'qr_post_rating_up', $current_up_rating );
+        update_post_meta( $id, 'rcpr_post_rating_up', esc_attr( $current_up_rating ) );
     }
     
     if ( $mode == 'down' ) {
         $current_down_rating = $current_down_rating + 1;
-        update_post_meta( $id, 'qr_post_rating_down', ( $current_down_rating ) );
+        update_post_meta( $id, 'rcpr_post_rating_down', ( esc_attr( $current_down_rating ) ) );
     }
     
-    return esc_attr( $title ) . ' - Up:' . $current_up_rating . ' - Down:' . $current_down_rating;
+    return esc_attr( $title ) . ' - Up:' . esc_attr( $current_up_rating ) . ' - Down:' . esc_attr( $current_down_rating );
 }
 
 ?>
