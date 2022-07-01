@@ -3,8 +3,8 @@ Contributors: rickcurran
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZEXMAMCYDS3G
 Tags: widgets, post rating, rate page, rate post, rating system, user-feedback, votes
 Requires at least: 4.6
-Tested up to: 5.9
-Stable tag: 1.0.5
+Tested up to: 6.0
+Stable tag: 1.0.6
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -127,6 +127,14 @@ If you think you have this all set up but the buttons don't seem to be working t
 
 
 == Changelog ==
+
+= 1.0.6 =
+
+- Fixed an issue where only votes for Pages and Posts but not custom post type were being displayed in the Dashboard widget.
+
+= 1.0.5 =
+
+- Various changes / improvements to code to meet requirements for submission to WordPress.org plugin directory. Updated function prefixes, increased escaping of output and change of text-domain to match plugin slug.
 
 = 1.0.4 =
 
