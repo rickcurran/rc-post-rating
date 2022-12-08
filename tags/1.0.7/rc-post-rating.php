@@ -3,7 +3,7 @@
 Plugin Name: RC Post Rating
 Plugin URI: https://qreate.co.uk/projects/#rc-post-rating
 Description: This plugin adds the ability for users to provide feedback on pages / posts via up / down rating buttons.
-Version: 1.0.8
+Version: 1.0.7
 Author: Rick Curran
 Author URI: https://qreate.co.uk
 Text Domain: rc-post-rating
@@ -45,16 +45,16 @@ include( 'includes/block.php' );
 add_action( 'wp_enqueue_scripts', 'rcpr_post_rating_js' );
 function rcpr_post_rating_js() {
     wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'rcpr_post_rating', plugin_dir_url( __FILE__ ) . 'js/rc-post-rating.js', array( 'jquery' ), '1.08', true );
+	wp_enqueue_script( 'rcpr_post_rating', plugin_dir_url( __FILE__ ) . 'js/rc-post-rating.js', array( 'jquery' ), '1.04', true );
     wp_localize_script( 'rcpr_post_rating', 'wpApiSettings', array( 'root' => esc_url_raw( rest_url() ), 'nonce' => wp_create_nonce( 'wp_rest' ) ) );
 }
 
 add_action( 'admin_enqueue_scripts', 'rcpr_post_rating_admin_js' );
 function rcpr_post_rating_admin_js() {
     wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'rcpr_post_rating_admin', plugin_dir_url( __FILE__ ) . 'js/rc-post-rating-admin.js', array( 'jquery' ), '1.08', true );
+	wp_enqueue_script( 'rcpr_post_rating_admin', plugin_dir_url( __FILE__ ) . 'js/rc-post-rating-admin.js', array( 'jquery' ), '1.04', true );
     
-    wp_register_style( 'rcpr_post_rating_admin_css', plugin_dir_url( __FILE__ ) . 'css/rc-post-rating-admin.css', false, '1.0.8' );
+    wp_register_style( 'rcpr_post_rating_admin_css', plugin_dir_url( __FILE__ ) . 'css/rc-post-rating-admin.css', false, '1.0.4' );
     wp_enqueue_style( 'rcpr_post_rating_admin_css' );
 }
 

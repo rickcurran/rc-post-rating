@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: widgets, post rating, rate page, rate post, rating system, user-feedback, votes
 Requires at least: 4.6
 Tested up to: 6.1
-Stable tag: 1.0.8
+Stable tag: 1.0.7
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -76,37 +76,22 @@ Yes, you can add this to your theme by using the shortcode, you can use the foll
 
 Yes, you can set the default button text on the plugin settings page, use the "RC Post Rating" menu found in the "Settings" menu in your WordPress admin. If using the shortcode method of adding the buttons to your site you can also override these defaults with shortcode attributes.
 
-= Can I change the type of element used for the buttons? =
-
-Yes, but only when using the shortcode. By default the buttons render using `a` links, whilst this works it is not always the best for accessibility to instead there is an option to use `button` elements instead. To do this add the `type` parameter to the shortcode as follows:
-
-`[rc_post_rating type="button"]`
-
-For compatibility reasons for existing sites using this plugin the use of `type="button"` has been added as an optional parameter rather than changing the default button markup. 
-
 = How do I style the buttons? Can I customise the CSS? =
 
 This plugin doesn't add any CSS styles so you will need to either add some CSS styles to the theme of your site or use the "Additional CSS" function in the WordPress admin to add some CSS styles.
 
-The HTML markup for the buttons has a containing DIV element with a class of `post-rating-tool`, inside this div are two elements that function as clickable buttons, one for up-rating with a class `rating-up` and one for down-rating with a class `rating-down`. When a user clicks on one of the button links it will add an additional class of `active` to that button and a class of `disabled` to the other button (note that these states persist for the user via a local storage setting in their browser which prevents them from rating a page more than once). Note that as per the previous FAQ item "Can I change the type of element used for the buttons?" it is possible to change the element used for these buttons.
+The HTML markup for the buttons has a containing DIV element with a class of `post-rating-tool`, inside this div are two links, one for up-rating with a class `rating-up` and one for down-rating with a class `rating-down`. When a user clicks on one of the button links it will add an additional class of `active` to that button and a class of `disabled` to the other button (note that these states persist for the user via a local storage setting in their browser which prevents them from rating a page more than once).
 
-Here is an example of the default generated HTML markup:
+Here is an example of the generated HTML markup:
 
 `<div class="post-rating-tool" data-post-rating-id="123">
     <a href="#yes" class="rating-up active">Yes</a>
     <a href="#no" class="rating-up disabled">No</a>
 </div>`
 
-Here is an example of the generated HTML markup with the `type="button"` parameter added to the shortcode:
+Here is some example CSS to provide styling for the basic states of the buttons:
 
-`<div class="post-rating-tool" data-post-rating-id="123">
-    <button class="rating-up active">Yes</button>
-    <button class="rating-up disabled">No</button>
-</div>`
-
-Here is some example CSS to provide styling for the basic states of the buttons, note that these include styles for both the use of `a` or `button` elements:
-
-`.post-rating-tool a, .post-rating-tool button {
+`.post-rating-tool a {
 	border-radius: 6px;
 	background-color: #bbb;
 	color: #000;
@@ -116,18 +101,18 @@ Here is some example CSS to provide styling for the basic states of the buttons,
 	box-shadow: 0 2px 3px rgba(0,0,0,0.2);
 }
 
-.post-rating-tool a:hover, .post-rating-tool button:hover {
+.post-rating-tool a:hover {
 	background-color: #ddd;
 	color: #000;
 	box-shadow: 0 2px 3px rgba(0,0,0,0.3);
 }
 
-.post-rating-tool a.active, .post-rating-tool a.active:hover, .post-rating-tool button.active, .post-rating-tool button.active:hover {
+.post-rating-tool a.active, .post-rating-tool a.active:hover {
 	background-color: #000;
 	color: #fff;
 }
 
-.post-rating-tool a.disabled, .post-rating-tool a.disabled:hover, .post-rating-tool button.disabled, .post-rating-tool button.disabled:hover {
+.post-rating-tool a.disabled, .post-rating-tool a.disabled:hover {
 	background-color: #ddd;
 	color: #ccc;
 	cursor: not-allowed;
@@ -143,16 +128,11 @@ If you think you have this all set up but the buttons don't seem to be working t
 
 == Changelog ==
 
-= 1.0.8 =
-
-- Fixed an issue with version numbering of JS and CSS files which was causing some rendering issues after updating to 1.0.7
-- Updated Readme to provide more details about using the new `type="button"` parameter in the shortcode.
-
 = 1.0.7 =
 
 - Added an optional `type` parameter to the shortcode to render vote buttons as actual HTML `button` elements instead of the default `a` elements, using `button` elements can be an improvement to accessibility.
 - Fixed an error that occurred when using PHP8.1 which caused the plugin settings screen to not display.
-- Fixed some other PHP8.1 compatibility issues
+- Fixed some other PHP8.1 compatbility issues
 
 = 1.0.6 =
 
