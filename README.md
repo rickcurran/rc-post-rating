@@ -3,8 +3,8 @@ Contributors: rickcurran
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZEXMAMCYDS3G
 Tags: widgets, post rating, rate page, rate post, rating system, user-feedback, votes
 Requires at least: 4.6
-Tested up to: 6.1
-Stable tag: 1.0.8
+Tested up to: 6.2
+Stable tag: 1.0.9
 Requires PHP: 7.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -142,6 +142,11 @@ If you think you have this all set up but the buttons don't seem to be working t
 
 
 == Changelog ==
+
+= 1.0.9 =
+
+- Added some fields which can be used to aid accessibility of the rating widget. There is an `ARIA Labelledby value` field which can be used to associate the rating widget with an HTML element. There are two `additional assistive text` fields can be used to add text which is only `visible` to screen-reader users, these will add span elements with a class of `show-for-sr` to the default `a` anchor button type or will add an `aria-label` with a combination of the regular label and the additional assistive text label to the `button` type, note that you will need to add appropriate CSS styles to render these as hidden to visual users but accessible by screen-reader users.
+
 
 = 1.0.8 =
 

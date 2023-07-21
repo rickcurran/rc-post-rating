@@ -1,0 +1,28 @@
+/**
+ * The following styles get applied inside the editor only.
+ */
+.wp-block-post-rating-post-rating-block {
+	border: 1px dotted #333;
+    background-color: transparent;
+	color: #000;
+	padding: 2px;
+}
+
+.post-rating-tool {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.post-rating-tool a, .post-rating-tool button {
+    display: inline-block;
+    padding: 0.6rem;
+    border-radius: 6px;
+    background-color: #aaa;
+    color: #fff;
+    min-width: 90px;
+}
+
+.post-rating-tool a:first-child, .post-rating-tool button:first-child {
+    margin-right: 0.75rem;
+}
