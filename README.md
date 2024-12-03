@@ -3,7 +3,7 @@ Contributors: rickcurran
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QZEXMAMCYDS3G
 Tags: widgets, post rating, rate page, rate post, rating system, user-feedback, votes
 Requires at least: 4.6
-Tested up to: 6.4
+Tested up to: 6.6
 Stable tag: 1.0.9
 Requires PHP: 7.3
 License: GPLv2 or later
